@@ -77,14 +77,14 @@ class Cube(Square,Prism):
         return "Cube has a width, hieght, and depth of %.2f, a surfacearea of %.2f, and a volume of %.2f." % (self.x, self.surfacearea(), self.volume())
 
 class TriangularPrism(RightTriangle,Prism):
-    def __init__(self, x, z):
+    def __init__(self, x, y, z):
         self.x = x
-        self.y = x
+        self.y = y
         self.z = z
         self.hyp = self.hypotenuse()
 
     def __str__(self):
-        return "Triangular Prism has a width and hieght of %.2f, a depth of %.2f, a surfacearea of %.2f, and a volume of %.2f." % (self.x, self.z, self.surfacearea(), self.volume())
+        return "Triangular Prism has a width of %.2f, a hieght of %.2f, a depth of %.2f, a surfacearea of %.2f, and a volume of %.2f." % (self.x, self.y, self.z, self.surfacearea(), self.volume())
 
 class Cylinder(Circle,Prism):
     def __init__(self, r, z):
@@ -92,7 +92,7 @@ class Cylinder(Circle,Prism):
         self.z = z
 
     def __str__(self):
-        return "Cylinder has a radius of %.2f, a depth of %.2f, a surfacearea of %.2f, and a volume of %.2f." % (self.r, self.z, self.surfacearea(), self.volume())
+        return "Cylinder has a radius of %.2f, a hieght of %.2f, a surfacearea of %.2f, and a volume of %.2f." % (self.r, self.z, self.surfacearea(), self.volume())
 
 # circle1=Circle(5)
 # print circle1
