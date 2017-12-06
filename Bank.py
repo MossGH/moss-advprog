@@ -12,7 +12,7 @@ class Bank:
         self.balance+= -input("Withdrawl: ")
 
 def num(accname):
-    while len(accname)<5:
+    while len(accname)<4:
         accname = accname+accname
     accnum=""
     for char in accname:
@@ -25,19 +25,33 @@ def num(accname):
 accounts={}
 q=""
 while q!="Q":
-    q=raw_input("(A)dd an account, (D)eposit, (W)ithdrawl, or (Q)uit: ").upper()
+    q=raw_input("(A)dd an account, (D)eposit, (W)ithdrawl, (C)heck balance or (Q)uit: ").upper()
     if q=="A":
         d=False
-        while d=False
-        accname=raw_input("Name: ")
-        if num(accname) in accounts:
-            print 
-        balance=input("Deposit: ")
-        else:
-            print "Your account number is "+str(num(accname))
-            accounts[num(accname)]=(Bank(num(accname),accname,balance))
-            d=True
+        while d==False:
+            try:
+                accname=raw_input("Name: ")
+                if num(accname) in accounts:
+                    print "That name is in use."
+                else:
+                    balance=input("Deposit: ")
+                    accnum=num(accname)
+                    print "Your account number is "+num(accname)
+                    accounts[accnum]=(Bank(accnum,accname,balance))
+                    d=True
+            except: pass
     elif q=="D":
-        accounts[input("Account number: ")].deposit
+        try:
+            num=raw_input("Account number: ")
+            accounts[num].deposit()
+            print "Your new balance is "+str(accounts[num].balance)
+        except: pass
     elif q=="W":
-        accounts[input("Account number: ")].withdrawl
+        try:
+            num=raw_input("Account number: ")
+            accounts[num].withdrawl()
+            print "Your new balance is "+str(accounts[num].balance)
+        except: pass
+    elif q=="C":
+        try: print accounts[raw_input("Account number: ")].balance
+        except: pass
